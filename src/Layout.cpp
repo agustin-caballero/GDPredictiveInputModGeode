@@ -14,7 +14,7 @@
 PIB_EXPECT_OFFSET(PlayerObject, m_collisionLogTop, 0x5b0);
 PIB_EXPECT_OFFSET(PlayerObject, m_collisionLogRight, 0x5c8);
 PIB_EXPECT_OFFSET(PlayerObject, m_lastCollisionBottom, 0x5d0);
-PIB_EXPECT_OFFSET(PlayerObject, m_unk50C, 0x5e0);
+PIB_EXPECT_OFFSET(PlayerObject, m_prevCollisionBottom, 0x5e0);
 PIB_EXPECT_OFFSET(PlayerObject, m_yVelocity, 0x9a8);
 PIB_EXPECT_OFFSET(PlayerObject, m_isShip, 0x9c1);
 PIB_EXPECT_OFFSET(PlayerObject, m_isUpsideDown, 0x9c7);
