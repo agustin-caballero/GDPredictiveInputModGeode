@@ -29,8 +29,6 @@ Also checks for potentially bad releases in wave gameplay (can be disabled in se
 
 Figure out how to compile geode v6 branch, then figure out how to compile from this repo, and you're done.
 
-Or let GitHub build it: every push runs the **Build mod** workflow. Download the `predictive-input-mod` artifact from the run in the Actions tab, unzip the `.geode` next to `install.bat` and run `install.bat`. It copies the mod into `Geometry Dash\geode\mods` (set `GD_PATH` if your game isn't in the default Steam folder) and can start the game for you. Geode has to be installed already.
-
 ## Heads up
 
 Turn off Click Between Frames if you have it, messes with timing.
