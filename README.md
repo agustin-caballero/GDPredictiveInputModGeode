@@ -15,9 +15,11 @@ This is basically just baby aim assist for GD. Haven't done any extensive testin
 Press **F6** in a level to cycle through them (you can rebind it in the mod settings):
 
 
-Disabled, and then 1-16 ticks (2-16 increments every 2 ticks tho)
+Disabled, and then 1-16 ticks (2-16 increments every 2 ticks tho), then 20, 24 and 32 ticks
 
-GD runs 240 ticks a second no matter your FPS, so 4 ticks is one frame at 60fps, 8 ticks is two and 16 is four.
+GD runs 240 ticks a second no matter your FPS, so 4 ticks is one frame at 60fps, 8 ticks is two, 16 is four and 32 is eight.
+
+A death is any death, not just spikes: hitting the side of a block, getting squished, or landing on a block and running into its wall or a spike right after (the landing is checked for about one more block before it counts as safe).
 
 Works as expected with spider, cube, ufo, basic click modes
 
@@ -26,6 +28,8 @@ Also checks for potentially bad releases in wave gameplay (can be disabled in se
 ## Installing
 
 Figure out how to compile geode v6 branch, then figure out how to compile from this repo, and you're done.
+
+Or let GitHub build it: every push runs the **Build mod** workflow. Download the `predictive-input-mod` artifact from the run in the Actions tab, unzip the `.geode` next to `install.bat` and run `install.bat`. It copies the mod into `Geometry Dash\geode\mods` (set `GD_PATH` if your game isn't in the default Steam folder) and can start the game for you. Geode has to be installed already.
 
 ## Heads up
 

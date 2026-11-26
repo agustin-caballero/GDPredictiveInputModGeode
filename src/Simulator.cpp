@@ -161,6 +161,7 @@ namespace pib {
 
         result.outcome = SimOutcome::Survived;
         bool airborne = false;
+        int landTick = -1;
         int teleportTick = -1;
         size_t nextInput = 0;
         for (int tick = 0; tick < request.horizon; ++tick) {
@@ -218,11 +219,16 @@ namespace pib {
                 break;
             }
             if (request.stopOnLanding) {
-                if (!simPlayer->m_isOnGround) airborne = true;
-                else if (airborne) break;
+                if (landTick < 0) {
+                    if (!simPlayer->m_isOnGround) airborne = true;
+                    else if (airborne) landTick = tick;
+                }
+                if (landTick >= 0 && tick >= landTick + request.settleAfterLanding) break;
             }
         }
-        if (result.outcome == SimOutcome::Survived && request.stopOnLanding && airborne && !simPlayer->m_isOnGround) {
+        if (result.outcome == SimOutcome::Survived && request.stopOnLanding && landTick < 0 && airborne &&
+            !simPlayer->m_isOnGround)
+        {
             // Ran out of ticks mid-air without landing or reaching an orb:
             // nothing proves this timing is safe (e.g. falling into the void).
             result.outcome = SimOutcome::Unknown;

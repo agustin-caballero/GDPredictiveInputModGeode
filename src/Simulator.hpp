@@ -40,6 +40,9 @@ namespace pib {
         // End as Survived when the player has been airborne after the input
         // and touches down again; running out of ticks in the air is Unknown.
         bool stopOnLanding = false;
+        // Keep going this many ticks after that landing, so landing on a
+        // block and then running into its wall or a spike counts as a death.
+        int settleAfterLanding = 0;
         // End as Survived when the player reaches an orb it wasn't touching
         // at the start: from there the outcome depends on the next click.
         bool stopOnNewOrb = true;

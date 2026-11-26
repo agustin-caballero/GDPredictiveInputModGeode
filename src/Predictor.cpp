@@ -64,6 +64,9 @@ namespace pib {
         // Ticks a spider keeps being checked after teleporting: enough to catch
         // spikes or saws right at the landing spot.
         constexpr int kSpiderSettleTicks = 10;
+        // Ticks a landing keeps being checked: about one block at normal
+        // speed, enough to catch the block's wall or a spike right after it.
+        constexpr int kLandingSettleTicks = 10;
 
         constexpr double kRhythmWeight = 0.3;
         // Longer gaps are pauses between sections, not rhythm.
@@ -122,6 +125,7 @@ namespace pib {
                     req.inputs.push_back({ tick + held, false });
                     req.horizon = tick + cfg.jumpHorizon;
                     req.stopOnLanding = true;
+                    req.settleAfterLanding = kLandingSettleTicks;
                     req.actWindow = held + 2;
                     // A spider click lands instantly on the other side; judge
                     // the landing spot and the next few ticks, not the next

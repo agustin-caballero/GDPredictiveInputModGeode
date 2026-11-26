@@ -7,11 +7,12 @@
 
 namespace pib {
     // Buffer modes, in the order the cycle key steps through them.
-    inline constexpr std::array<std::string_view, 10> kModeNames = {
+    inline constexpr std::array<std::string_view, 13> kModeNames = {
         "Disabled", "1 Tick", "2 Ticks", "4 Ticks", "6 Ticks",
-        "8 Ticks", "10 Ticks", "12 Ticks", "14 Ticks", "16 Ticks"
+        "8 Ticks", "10 Ticks", "12 Ticks", "14 Ticks", "16 Ticks",
+        "20 Ticks", "24 Ticks", "32 Ticks"
     };
-    inline constexpr std::array<int, 10> kModeTicks = { 0, 1, 2, 4, 6, 8, 10, 12, 14, 16 };
+    inline constexpr std::array<int, 13> kModeTicks = { 0, 1, 2, 4, 6, 8, 10, 12, 14, 16, 20, 24, 32 };
 
     struct Settings {
         int maxDelay = 2;
@@ -19,7 +20,7 @@ namespace pib {
         bool showStatus = true;
         bool logSaves = true;
         int jumpHorizon = 120;
-        int holdHorizon = 12;
+        int holdHorizon = 24;
         bool selfCheck = false;
         bool ignoreTwoPlayer = false;
     };
